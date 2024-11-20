@@ -1,0 +1,95 @@
+.card {
+    width: 75%;
+    min-height: 90vh;
+    border-radius: 30px;
+    background: linear-gradient(125deg, rgba(10, 147, 150, 1) 0%, rgba(0, 95, 115, 1) 100%);
+    margin: 0 auto;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    .form{
+        margin-top: 30px;
+    }
+    .menu {
+        width: 100%;
+        border-bottom: 2px solid #ffffff;
+        height: 50px;
+    }
+    .custom-select-container{
+         width: 100%;
+    }
+    h2 {
+        color: #ffffff;
+        text-align: center;
+    }
+
+    form {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    label {
+        font-size: 14px;
+        color: #ffffff;
+        display: block;
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .input { 
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+        box-sizing: border-box;
+    }
+
+    select.input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+        box-sizing: border-box;
+        background-color: white;
+    }
+
+    .buttons {
+        position: absolute;
+        bottom: 34px;
+        right: 34px;
+        display: flex;
+        gap: 10px;
+    }
+
+    button {
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 20px;
+        cursor: pointer;
+
+        &.cancel-btn {
+            background-color: #ff6b6b;
+            color: white;
+
+            &:hover {
+                background-color: #ff4c4c;
+            }
+        }
+
+        &.confirm-btn {
+            background-color: #4caf50;
+            color: white;
+
+            &:hover {
+                background-color: #43a047;
+            }
+        }
+    }
+}

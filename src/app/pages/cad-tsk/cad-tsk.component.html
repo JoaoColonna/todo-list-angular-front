@@ -1,0 +1,47 @@
+<div class="card">
+    <div class="menu"></div>
+    <form [formGroup]="form" class="form" (ngSubmit)="onSubmit()">
+        <label for="taskName">Nome da Tarefa:</label>
+        <input class="input" type="text" formControlName="name">
+
+        <label for="status">Descrição:</label>
+        <input class="input" type="text" formControlName="discricao">
+
+        <label for="dueDate">Data Final:</label>
+        <input class="input" type="date" formControlName="dueDate">
+
+        <!-- Select para escolher a cor do fundo -->
+        <label for="color-select">Cor da Tarefa:</label>
+        <select class="input" id="color-select" formControlName="color">
+            <option value="">Selecione uma cor:</option>
+            <option value="lightcoral">Coral</option>
+            <option value="lightblue">Azul Claro</option>
+            <option value="lightgreen">Verde Claro</option>
+            <option value="lightyellow">Amarelo Claro</option>
+        </select>
+
+        <!-- Select para categoria -->
+        <label for="categoria-select">Categoria:</label>
+        <div class="custom-select-container">
+            <select id="categoria-select" class="input" formControlName="category" (change)="onCategoryChange($event)">
+                <option value="" disabled selected>Selecione uma categoria</option>
+                @if(categor.length > 0) {
+                @for(op of categor; track op){
+                <option [value]="op.name">{{ op.name }}</option>
+                }}
+                <option value="outra">Outra...</option>
+            </select>
+
+            @if(isOtherSelected){
+            <label for="categoria-select">Digite a Nova Categoria:</label>
+            <input type="text" class="input" formControlName="category" placeholder="Digite sua categoria"
+                (input)="onCustomCategoryInput($event)">
+            }
+        </div>
+
+        <div class="buttons">
+            <button type="button" class="cancel-btn" routerLink="/">Cancelar</button>
+            <button type="submit" class="confirm-btn">Confirmar</button>
+        </div>
+    </form>
+</div>
