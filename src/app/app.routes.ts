@@ -13,6 +13,30 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./pages/home/home.component').then((c) => c.HomeComponent),
       },
+      {
+        path: 'acesso',
+        title: 'Acesso',
+        loadComponent: () =>
+          import('./pages/acesso/acesso.component').then(
+            (a) => a.AcessoComponent
+          ),
+      },
+      {
+        path: 'nova-tarefa',
+        title: 'Criar Nova Tarefa',
+        loadComponent: () =>
+          import('./pages/cad-tsk/cad-tsk.component').then(
+            (t) => t.CadTskComponent
+          ),
+      },
+      {
+        path: 'editar-tarefa/:id',
+        title: 'Editar Tarefa',
+        loadComponent: () =>
+          import('./pages/cad-tsk/cad-tsk.component').then(
+            (t) => t.CadTskComponent
+          ),
+      },
     ],
   },
 ];
