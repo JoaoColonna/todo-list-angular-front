@@ -1,1 +1,75 @@
-<p>home works!</p>
+<div class="card">
+    <div class="menu">
+        <div class="content-button">
+            <button (click)="mostrarConteudo()">
+                <p>Tarefa Pendente</p>
+            </button>
+            <button (click)="exibirOpcao('Concluida')">
+                <p>Tarefa Concluida</p>
+            </button>
+            <button class="plus" routerLink="/nova-tarefa">
+                <p>Nova Tarefa</p>
+                <i class="fa-solid fa-circle-plus"></i>
+            </button>
+        </div>
+    </div>
+    <div class="contentTable">
+        <div class="tableHeader">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="left">Nome da Tarefa</th>
+                        <th>Prazo Final</th>
+                        <th class="right">Ação</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    @if (exibirConteudo) {
+        <div class="tableBody">
+            <table>
+                <tbody>
+                    @for (tsk of tasks; track $index) {
+                    <tr>
+                        <td class="left" data-bs-toggle="modal" data-bs-target="#tskModal" (click)="openModal(tsk.id)">
+                            {{ tsk.name }}
+                        </td>
+                        <td>
+                            {{ tsk.dueDate.toLocaleDateString('pt-BR') }}
+                        </td>
+                        <td class="right"><a type="button" class="finalizarTsk">Finalizar Tarefa</a></td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }@if (opcaoSelecionada === 'Concluida'){
+        <div class="tableBody"></div>
+        }
+    </div>
+</div>
+
+@if(modalTask){
+<div class="modal fade " id="tskModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content" [style.background-color]="modalTask.color">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">Detalhes da Tarefa</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Nome:</strong> {{ modalTask.name }}</p>
+                <p><strong>Prazo Final:</strong> {{ modalTask.dueDate.toLocaleDateString('pt-BR') }}</p>
+                <p><strong>Descrição:</strong> {{ modalTask.discricao }}</p>
+                <p><strong>Status:</strong> {{ modalTask.statuss }}</p>
+                <p><strong>Categoria:</strong> {{ modalTask.category }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary buttoncolor" data-bs-dismiss="modal">Excluir</button>
+                <button type="button" class="btn btn-secondary btncolor" data-bs-dismiss="modal"
+                    routerLink="/editar-tarefa/{{ modalTask.id }}">Editar</button>
+            </div>
+        </div>
+    </div>
+</div>
+}

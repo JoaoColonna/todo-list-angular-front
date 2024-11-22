@@ -1,0 +1,153 @@
+.card {
+    width: 75%;
+    min-height: 90vh;
+    border-radius: 30px;
+    background: linear-gradient(125deg, rgba(10, 147, 150, 1) 0%, rgba(0, 95, 115, 1) 100%);
+    margin: 0 auto;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+
+    .menu {
+        width: 100%;
+        border-bottom: 2px solid #ffffff;
+
+
+        .content-button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 80%;
+            margin: 0 auto;
+            margin-bottom: 20px;
+
+            button {
+                all: unset;
+                color: #ffffff;
+                font-size: 26px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+                cursor: pointer;
+
+                &.plus {
+                    gap: 1rem;
+                }
+
+                p {
+                    margin: 0;
+                }
+
+                i {
+                    position: relative;
+                    top: 0;
+                }
+            }
+        }
+    }
+
+}
+
+.contentTable {
+    display: flex;
+    gap: 1.5rem;
+    flex-direction: column;
+    margin-top: 2rem;
+
+    .tableHeader {
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-radius: 1rem;
+            background-color: #ffffff;
+
+            thead {
+                tr {
+                    th {
+                        font-size: 26px;
+                        text-align: center;
+                        width: calc(100% / 3);
+                        padding: 0.5rem 1rem 0.5rem 1rem;
+
+                        &.left {
+                            text-align: left;
+                        }
+
+                        &.right {
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .tableBody {
+        height: 35rem;
+        width: 80%;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border-radius: 1rem;
+        overflow-y: auto;
+
+        table {
+            width: 100%;
+
+            tbody {
+                tr {
+                    td {
+                        width: calc(100% / 3);
+                        padding: 0.5rem 1rem 0.5rem 1rem;
+                        text-align: center;
+
+                        &.left {
+                            cursor: pointer;
+                            text-align: left;
+                        }
+
+                        &.right {
+                            text-align: right;
+                        }
+                    }
+
+                    &:hover {
+                        background-color: #a8dadc;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.modal-header,
+.modal-body,
+.modal-footer {
+    padding: 8px;
+    border: none;
+}
+
+.modal-body {
+    font-size: 20px;
+}
+
+.modal-header {
+    h1 {
+        font-size: 25px !important;
+        font-weight: bold;
+    }
+}
+
+.modal-footer {
+
+    .buttoncolor {
+        background-color: #F95454;
+        border: none;
+    }
+
+    .btncolor {
+        background-color: #7ED7C1;
+        border: none;
+    }
+}
