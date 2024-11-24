@@ -10,32 +10,28 @@
         <label for="dueDate">Data Final:</label>
         <input class="input" type="date" formControlName="dueDate">
 
-        <!-- Select para escolher a cor do fundo -->
         <label for="color-select">Cor da Tarefa:</label>
         <select class="input" id="color-select" formControlName="color">
             <option value="" disabled selected>Selecione uma cor:</option>
-            @for(color of colors; track $index){
+           @for(color of colors; track $index){
             <option value="{{color.value}}">{{color.name}}</option>
            }
         </select>
 
-        <!-- Select para categoria -->
         <label for="categoria-select">Categoria:</label>
         <div class="custom-select-container">
             <select id="categoria-select" class="input" formControlName="category" (change)="onCategoryChange($event)">
                 <option value="" disabled selected>Selecione uma categoria</option>
-                @if(categor.length > 0) {
-                @for(op of categor; track op){
-                <option [value]="op.name">{{ op.name }}</option>
-                }}
+                <ng-container *ngIf="categor.length > 0">
+                    <option *ngFor="let op of categor" [value]="op.name">{{ op.name }}</option>
+                </ng-container>
                 <option value="outra">Outra...</option>
             </select>
 
-            @if(isOtherSelected){
-            <label for="categoria-select">Digite a Nova Categoria:</label>
-            <input type="text" class="input" formControlName="category" placeholder="Digite sua categoria"
-                (input)="onCustomCategoryInput($event)">
-            }
+            <div *ngIf="isOtherSelected">
+                <label for="categoria-select">Digite a Nova Categoria:</label>
+                <input type="text" class="input" formControlName="category" placeholder="Digite sua categoria" (input)="onCustomCategoryInput($event)">
+            </div>
         </div>
 
         <div class="buttons">

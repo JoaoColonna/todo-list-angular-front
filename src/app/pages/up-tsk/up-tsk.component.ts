@@ -7,14 +7,28 @@ import { RouterModule } from '@angular/router';
   selector: 'app-cad-tsk',
   standalone: true,
   imports: [CommonModule, RouterModule, ReactiveFormsModule],
-  templateUrl: './cad-tsk.component.html',
-  styleUrls: ['./cad-tsk.component.scss']
+  templateUrl: './up-tsk.component.html',
+  styleUrls: ['./up-tsk.component.scss']
 })
-export class CadTskComponent {
+export class UpTskComponent {
   isOtherSelected = false;
-    categor: { name: string }[] = [];
-    colors = [{name:'Default', value:'white'},{name:'Azul acinzentado', value:'#789DBC'},{name:'Rosa claro', value:' #FFE3E3'},{name:'Creme', value:' #FEF9F2'},{name:'Verde pastel', value:'#C9E9D2'}];
+
+  colors = [{name:'Default', value:'white'},{name:'Azul acinzentado', value:'#789DBC'},{name:'Rosa claro', value:' #FFE3E3'},{name:'Creme', value:' #FEF9F2'},{name:'Verde pastel', value:'#C9E9D2'}];
+  categor: { name: string }[] = [];
   private builder = inject(NonNullableFormBuilder);
+
+  // constructor() {
+  //   const formattedDate = new Date('2024-12-31').toISOString().split('T')[0];
+  // this.form.patchValue({
+  //   name: 'Si',
+  //   discricao: 'dasdas',
+  //   statuss: 'Afazer',
+  //   dueDate: formattedDate,
+  //   color: 'lightcoral',
+  //   category: 'Tec'
+  // });
+  // }
+
 
   form = this.builder.group({
     name: ['', [Validators.required]],
@@ -25,9 +39,9 @@ export class CadTskComponent {
     category: ['', [Validators.required]] 
   });
 
-   customCategoryControl = new FormControl('');
-   
-onCategoryChange(event: Event): void {
+  customCategoryControl = new FormControl('');
+
+  onCategoryChange(event: Event): void {
     const selectedValue = (event.target as HTMLSelectElement).value;
     this.isOtherSelected = selectedValue === 'outra';
 

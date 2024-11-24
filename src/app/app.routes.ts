@@ -33,8 +33,8 @@ export const routes: Routes = [
         path: 'editar-tarefa/:id',
         title: 'Editar Tarefa',
         loadComponent: () =>
-          import('./pages/cad-tsk/cad-tsk.component').then(
-            (t) => t.CadTskComponent
+          import('./pages/up-tsk/up-tsk.component').then(
+            (v) => v.UpTskComponent
           ),
       },
     ],

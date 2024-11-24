@@ -7,19 +7,23 @@
     padding: 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
-    
-    .form{
+
+    .form {
         margin-top: 30px;
-        width: 100%;    
+        width: 100%;        
     }
+
+
     .menu {
         width: 100%;
         border-bottom: 2px solid #ffffff;
         height: 50px;
     }
-    .custom-select-container{
-         width: 100%;
+
+    .custom-select-container {
+        width: 100%;
     }
+
     h2 {
         color: #ffffff;
         text-align: center;
@@ -40,7 +44,7 @@
         margin-bottom: 5px;
     }
 
-    .input { 
+    .input {
         width: 100%;
         padding: 8px;
         margin-bottom: 15px;
@@ -51,13 +55,6 @@
     }
 
     select.input {
-        width: 100%;
-        padding: 8px;
-        margin-bottom: 15px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        font-size: 14px;
-        box-sizing: border-box;
         background-color: white;
     }
 
