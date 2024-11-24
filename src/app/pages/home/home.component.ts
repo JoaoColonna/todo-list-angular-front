@@ -1,11 +1,12 @@
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { TaskfinishedComponent } from '../taskfinished/taskfinished.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HttpClientModule, RouterModule],
+  imports: [HttpClientModule, RouterModule, TaskfinishedComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
