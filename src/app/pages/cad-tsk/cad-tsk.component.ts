@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 import { TaskService } from '../../core/services/task.service';
 import { TaskRequest } from '../../core/models/task';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cad-tsk',
@@ -55,7 +56,8 @@ export class CadTskComponent {
 
   constructor(
     private authService: AuthService,
-    private taskService: TaskService
+    private taskService: TaskService,
+    private router: Router
   ) {
     const user = this.authService.getCurrentUser();
     if (user) {
@@ -134,6 +136,7 @@ export class CadTskComponent {
           .create(taskPayload)
           .toPromise();
         console.log('Tarefa criada com sucesso:', createdTask);
+        this.router.navigate(['/']);
       } catch (error) {
         console.error('Erro ao criar tarefa:', error);
       }
