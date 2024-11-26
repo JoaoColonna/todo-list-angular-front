@@ -11,7 +11,7 @@ import { TaskResponse } from '../../core/models/task';
   standalone: true,
   imports: [HttpClientModule, RouterModule, TaskfinishedComponent],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'], // Corrigido "styleUrl" para "styleUrls"
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
   modalTask: {
@@ -31,7 +31,6 @@ export class HomeComponent {
     1: 'Trabalho',
     2: 'Estudos',
     3: 'Lazer',
-    // Adicione mais categorias conforme necessário
   };
 
   tasks: Array<{
