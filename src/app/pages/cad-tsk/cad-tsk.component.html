@@ -1,46 +1,65 @@
 <div class="card">
-    <div class="menu"></div>
-    <form [formGroup]="form" class="form" (ngSubmit)="onSubmit()">
-        <label for="taskName">Nome da Tarefa:</label>
-        <input class="input" type="text" formControlName="name">
+  <div class="menu"></div>
+  <form [formGroup]="form" class="form" (ngSubmit)="onSubmit()">
+    <label for="taskName">Nome da Tarefa:</label>
+    <input class="input" type="text" formControlName="tsk_name" />
 
-        <label for="status">Descrição:</label>
-        <input class="input" type="text" formControlName="discricao">
+    <label for="status">Descrição:</label>
+    <input class="input" type="text" formControlName="tsk_description" />
 
-        <label for="dueDate">Data Final:</label>
-        <input class="input" type="date" formControlName="dueDate">
+    <label for="dueDate">Data Final:</label>
+    <input class="input" type="date" formControlName="tks_deadline_date" />
 
-        <!-- Select para escolher a cor do fundo -->
-        <label for="color-select">Cor da Tarefa:</label>
-        <select class="input" id="color-select" formControlName="color">
-            <option value="" disabled selected>Selecione uma cor:</option>
-            @for(color of colors; track $index){
-            <option value="{{color.value}}">{{color.name}}</option>
-           }
+    <!-- Select para escolher a cor do fundo -->
+    <label for="color-select">Cor da Tarefa:</label>
+    <select class="input" id="color-select" formControlName="tsk_color">
+      <option value="" disabled selected>Selecione uma cor:</option>
+      @for(color of colors; track $index){
+      <option value="{{ color.value }}">{{ color.name }}</option>
+      }
+    </select>
+
+    <label for="color-select">Prioridade da Tarefa:</label>
+    <select class="input" id="color-select" formControlName="tskpr_id">
+      <option value="" disabled selected>Selecione a Prioridade:</option>
+      @for(priority of prioritys; track $index){
+      <option value="{{ priority.value }}">{{ priority.name }}</option>
+      }
+    </select>
+
+    <!-- Select para categoria -->
+    <form [formGroup]="cat" class="form">
+      <label for="categoria-select">Categoria:</label>
+      <div class="custom-select-container">
+        <select
+          id="categoria-select"
+          class="input"
+          formControlName="category"
+          (change)="onCategoryChange($event)"
+        >
+          <option value="" disabled selected>Selecione uma categoria</option>
+          @if(categor.length > 0) { @for(op of categor; track op){
+          <option [value]="op.name">{{ op.name }}</option>
+          }}
+          <option value="outra">Outra...</option>
         </select>
 
-        <!-- Select para categoria -->
-        <label for="categoria-select">Categoria:</label>
-        <div class="custom-select-container">
-            <select id="categoria-select" class="input" formControlName="category" (change)="onCategoryChange($event)">
-                <option value="" disabled selected>Selecione uma categoria</option>
-                @if(categor.length > 0) {
-                @for(op of categor; track op){
-                <option [value]="op.name">{{ op.name }}</option>
-                }}
-                <option value="outra">Outra...</option>
-            </select>
-
-            @if(isOtherSelected){
-            <label for="categoria-select">Digite a Nova Categoria:</label>
-            <input type="text" class="input" formControlName="category" placeholder="Digite sua categoria"
-                (input)="onCustomCategoryInput($event)">
-            }
-        </div>
-
-        <div class="buttons">
-            <button type="button" class="cancel-btn" routerLink="/">Cancelar</button>
-            <button type="submit" class="confirm-btn">Confirmar</button>
-        </div>
+        @if(isOtherSelected){
+        <label for="categoria-select">Digite a Nova Categoria:</label>
+        <input
+          type="text"
+          class="input"
+          formControlName="category"
+          placeholder="Digite sua categoria"
+          (input)="onCustomCategoryInput($event)"
+        />
+        }
+      </div>
     </form>
+
+    <div class="buttons">
+      <button type="button" class="cancel-btn" routerLink="/">Cancelar</button>
+      <button type="submit" class="confirm-btn">Confirmar</button>
+    </div>
+  </form>
 </div>

@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './layouts/layout.component';
+import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -20,6 +21,7 @@ export const routes: Routes = [
           import('./pages/acesso/acesso.component').then(
             (a) => a.AcessoComponent
           ),
+        canActivate: [authGuard],
       },
       {
         path: 'nova-tarefa',

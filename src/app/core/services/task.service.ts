@@ -4,13 +4,15 @@ import { TaskRequest, TaskResponse } from '../models/task';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TaskService {
   private endpointTask = 'task';
   private endpointTaskAll = 'tasks';
 
-  constructor(private baseApiClient: BaseApiClientService<TaskRequest, TaskResponse>) { }
+  constructor(
+    private baseApiClient: BaseApiClientService<TaskRequest, TaskResponse>
+  ) {}
 
   getAll(): Observable<TaskResponse[]> {
     return this.baseApiClient.getAll(this.endpointTaskAll);
@@ -21,6 +23,7 @@ export class TaskService {
   }
 
   create(task: TaskRequest): Observable<TaskResponse> {
+    console.log(task);
     return this.baseApiClient.post(this.endpointTask, task);
   }
 
