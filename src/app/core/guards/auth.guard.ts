@@ -9,8 +9,7 @@ export const authGuard: CanActivateFn = (route, state) => {
   const isAuthenticated = authService.getCurrentUser();
   const routePath = route.routeConfig?.path;
 
-
-  if (isAuthenticated && routePath === 'acesso') {
+  if (isAuthenticated.usr_id != null && routePath === 'acesso') {
     router.navigate(['/']);
     return false;
   }
