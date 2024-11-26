@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BaseApiClientService } from './base-api-client.service';
-import { UserRequest, UserResponse, LoginRequest, LoginResponse } from '../models/User';
+import { UserRequest, UserResponse, LoginRequest, LoginResponse } from '../models/user';
 import { Observable } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
