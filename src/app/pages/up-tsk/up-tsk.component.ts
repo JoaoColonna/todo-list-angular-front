@@ -17,19 +17,6 @@ export class UpTskComponent {
   categor: { name: string }[] = [];
   private builder = inject(NonNullableFormBuilder);
 
-  // constructor() {
-  //   const formattedDate = new Date('2024-12-31').toISOString().split('T')[0];
-  // this.form.patchValue({
-  //   name: 'Si',
-  //   discricao: 'dasdas',
-  //   statuss: 'Afazer',
-  //   dueDate: formattedDate,
-  //   color: 'lightcoral',
-  //   category: 'Tec'
-  // });
-  // }
-
-
   form = this.builder.group({
     name: ['', [Validators.required]],
     discricao: ['', [Validators.required]],
